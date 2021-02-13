@@ -47,6 +47,19 @@ public class Matriz {
         } 
         return matrizResultante; 
     } 
+    
+    public static Matriz invertirMatriz(Matriz a) throws DimensionesIncompatibles {         
+        int i, j, k, filas, columnas; 
+        filas = a.getDimension().height; 
+        columnas = a.getDimension().width; 
+        Matriz matrizResultante = new Matriz(columnas, filas, false);
+        for (i = 0; i < filas; i++) { 
+            for (j = 0; j < columnas; j++) { 
+                    matrizResultante.datos[i][j] += a.datos[j][i]; 
+            } 
+        } 
+        return matrizResultante; 
+    } 
 
     @Override
     public String toString(){
